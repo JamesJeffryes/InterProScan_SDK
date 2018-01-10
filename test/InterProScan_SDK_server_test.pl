@@ -19,30 +19,10 @@ my $ctx = LocalCallContext->new($token, $auth_token->user_id);
 $InterProScan_SDK::InterProScan_SDKServer::CallContext = $ctx;
 my $impl = new InterProScan_SDK::InterProScan_SDKImpl();
 
-my $params = {
-input_genome => "ecoli",
-workspace => "janakakbase:1455821214132",
-ontology_translation => "sso2go",
-translation_behavior => "tFO",
-custom_translation => "",
-output_genome => "ecoliModified"
-};
-
-my $shew = {
-input_genome => "she_sso2go",
-workspace => "janakakbase:1455821214132",
-ontology_translation => "interpro2go",
-translation_behavior => "featureOnly",
-custom_translation => "",
-output_genome => "defined_sso2go"
-};
-
 eval {
-	#my $ret =$impl->seedtogo($ws,$geno,$trt,$out);
-  	my $ret =$impl->annotationtogo($shew);
-  	$ret =$impl->func_annotate_genome_with_interpro_pipeline({
-  		workspace => "janakakbase:1455821214132",
-  		genome_id => "InterproTestGenome",
+  	my $ret =$impl->func_annotate_genome_with_interpro_pipeline({
+  		workspace => "jjeffryes:narrative_1502586048308",
+  		genome_id => "Rhodobacter_sphaeroides_2.4.1",
   		genome_output_id => "InterproTestGenomeOutput",
   		genome_workspace => "InterproTestData"
   	});
