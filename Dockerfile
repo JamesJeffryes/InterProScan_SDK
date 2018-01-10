@@ -9,15 +9,15 @@ MAINTAINER KBase Developer
 
 # -----------------------------------------
 
+RUN apt-get install python-dev libffi-dev libssl-dev \
+    && pip install pyopenssl ndg-httpsclient pyasn1 \
+    && pip install requests --upgrade \
+    && pip install 'requests[security]' --upgrade
 RUN cpanm -i Config::IniFiles
-RUN apt-get install libffi-dev libssl-dev
-RUN pip install --upgrade requests[security]
 RUN apt-add-repository ppa:webupd8team/java
 RUN apt-get update
 RUN apt-get -q install -y oracle-java8-installer
 RUN apt-get install oracle-java8-set-default
-RUN java -version
-RUN which java
 
 # Copy local wrapper files, and build
 
@@ -29,6 +29,7 @@ WORKDIR /kb/module
 RUN make
 
 RUN rm -rf /kb/runtime/java
+RUN chmod -R a+rw /kb/module
 
 ENTRYPOINT [ "./scripts/entrypoint.sh" ]
 
