@@ -20,11 +20,11 @@ $InterProScan_SDK::InterProScan_SDKServer::CallContext = $ctx;
 my $impl = new InterProScan_SDK::InterProScan_SDKImpl();
 
 eval {
-  	my $ret =$impl->func_annotate_genome_with_interpro_pipeline({
+  	my $ret =$impl->annotate_genome_with_interpro_pipeline({
   		workspace => "jjeffryes:narrative_1502586048308",
   		genome_id => "Rhodobacter_sphaeroides_2.4.1",
   		genome_output_id => "InterproTestGenomeOutput",
-  		genome_workspace => "InterproTestData"
+  		genome_workspace => "jjeffryes:narrative_1502586048308"
   	});
 };
 

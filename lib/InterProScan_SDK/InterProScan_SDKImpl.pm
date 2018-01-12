@@ -30,7 +30,6 @@ our $currentcontext;
 #Initialization function for call
 sub util_initialize_call {
 	my ($self,$params,$ctx) = @_;
-	print("Starting ".$ctx->method()." method.\n");
 	$currentcontext = $ctx;
 	return $params;
 }
